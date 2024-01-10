@@ -1,20 +1,18 @@
 import { React } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Main } from "./routes/main/Main";
+import { Edit } from "./routes/edit/Edit";
+import { Create } from "./routes/create/Create";
 
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/edit/:cardId" element={<Edit />} />
+        <Route path="/create" element={<Create />} />
+      </Routes>
+    </Router>
   );
 }
 

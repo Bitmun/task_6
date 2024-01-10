@@ -1,0 +1,9 @@
+.create-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.is-open {
+  display: none;
+}
