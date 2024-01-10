@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserCard } from "../../components/UserCard/UserCard";
+import FormsStack from "../../components/FormsStack/FormsStack";
 
 export function Edit() {
   const [user, setUser] = useState();
@@ -46,6 +47,8 @@ export function Edit() {
         <>
           <div>Original</div>
           <UserCard data={user} pets={pets} />
+          <div>Forms:</div>
+          <FormsStack user={user} pets={pets} />
         </>
       )}
     </div>
