@@ -7,7 +7,6 @@ import FormsStack from "../../components/FormsStack/FormsStack";
 export function Edit() {
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [pets, setPets] = useState([]);
   const params = useParams();
   const id = params.cardId;
   const navigate = useNavigate("/");
@@ -23,16 +22,6 @@ export function Edit() {
         setUser(res.data);
         setIsLoading(false);
       });
-
-    axios
-      .get(`http://localhost:5000/pets/${id}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        const parsedResponse = res.data;
-        setPets(parsedResponse);
-        setIsLoading(false);
-      });
   }, []);
 
   return (
@@ -46,9 +35,9 @@ export function Edit() {
       ) : (
         <>
           <div>Original</div>
-          <UserCard data={user} pets={pets} />
+          <UserCard data={user} />
           <div>Forms:</div>
-          <FormsStack user={user} pets={pets} />
+          <FormsStack user={user} />
         </>
       )}
     </div>

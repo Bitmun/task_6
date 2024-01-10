@@ -1,5 +1,5 @@
-/* eslint-disable no-prototype-builtins */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from "react";
@@ -10,8 +10,9 @@ import classNames from "classnames";
 import { useYupValidationResolver } from "../../customHooks/yupHooks";
 import { cardSchema } from "../../schemes/cardScheme";
 import { PetForm } from "../PetForm/PetForm";
+import "./formsStack.css";
 
-function FormsStack({ user, pets }) {
+function FormsStack({ user }) {
   const resolver = useYupValidationResolver(cardSchema);
 
   const {
@@ -31,6 +32,9 @@ function FormsStack({ user, pets }) {
   const divClass = classNames("sub-menu-wrapper", {
     "is-closed": !radioState,
   });
+  useEffect(() => {
+    setValue("education", false);
+  }, []);
 
   if (user) {
     useEffect(() => {
@@ -45,17 +49,7 @@ function FormsStack({ user, pets }) {
       setValue("schoolName", user.schoolName);
       setValue("email", user.email);
       setValue("phoneNumber", user.phoneNumber);
-      setValue("pets", pets);
-      if (pets && pets.length > 0) {
-        console.log(pets);
-        pets.forEach((pet) => {
-          append({ species: pet.species, name: pet.name });
-        });
-      }
-    }, []);
-  } else {
-    useEffect(() => {
-      setValue("education", false);
+      setValue("pets", user.pets);
     }, []);
   }
 
@@ -80,11 +74,8 @@ function FormsStack({ user, pets }) {
             }
           });
 
-          if (data.pets.length !== pets.length) {
-            updatedData.pets = data.pets;
-          }
           if (Object.keys(updatedData).length === 0) {
-            console.log("nothing to update");
+            // TODO
             return;
           }
 

@@ -1,12 +1,19 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import "./usercard.css";
-// import PropTypes from "prop-types";
 
-export function UserCard({ data, pets = null }) {
-  const { username, gender, firstName, secondName, age, email, phoneNumber } =
-    data;
-
+export function UserCard({
+  data: {
+    username,
+    gender,
+    firstName,
+    pets,
+    secondName,
+    age,
+    email,
+    phoneNumber,
+  },
+}) {
   return (
     <div className="card-wrapper">
       <div>Username: {username}</div>
@@ -17,13 +24,12 @@ export function UserCard({ data, pets = null }) {
       <div>{email}</div>
       <div>{phoneNumber || "no phone number"}</div>
       <div>
-        {pets &&
-          pets.map((pet) => (
-            <div key={pet.id}>
-              <div>species: {pet.species}</div>
-              <div>name: {pet.name}</div>
-            </div>
-          ))}
+        {pets.map((pet) => (
+          <div key={pet.id}>
+            <div>species: {pet.species}</div>
+            <div>name: {pet.name}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
