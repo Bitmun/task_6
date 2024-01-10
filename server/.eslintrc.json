@@ -6,7 +6,7 @@
   "extends": ["airbnb", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "commonjs"
+    "sourceType": "module"
   },
   "plugins": ["prettier"],
   "rules": {
