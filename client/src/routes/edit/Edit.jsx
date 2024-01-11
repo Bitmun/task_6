@@ -22,6 +22,9 @@ export function Edit() {
       .then((res) => {
         setUser(res.data);
         setIsLoading(false);
+      })
+      .catch(() => {
+        navigate("/");
       });
   }, []);
 
