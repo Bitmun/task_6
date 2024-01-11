@@ -34,26 +34,25 @@ function FormsStack({ user }) {
   const divClass = classNames("sub-menu-wrapper", {
     "is-closed": !radioState,
   });
+
   useEffect(() => {
     setValue("education", false);
   }, []);
 
-  if (user) {
-    useEffect(() => {
-      setValue("username", user.username);
-      setValue("firstName", user.firstName);
-      setValue("lastName", user.lastName);
-      setValue("gender", user.gender);
-      setValue("age", user.age);
-      setValue("education", user.education);
-      setRadioState(user.education);
-      setValue("highestEducation", user.highestEducation);
-      setValue("schoolName", user.schoolName);
-      setValue("email", user.email);
-      setValue("phoneNumber", user.phoneNumber);
-      setValue("pets", user.pets);
-    }, []);
-  }
+  useEffect(() => {
+    setValue("username", user.username);
+    setValue("firstName", user.firstName);
+    setValue("lastName", user.lastName);
+    setValue("gender", user.gender);
+    setValue("age", user.age);
+    setValue("education", user.education);
+    setRadioState(user.education);
+    setValue("highestEducation", user.highestEducation);
+    setValue("schoolName", user.schoolName);
+    setValue("email", user.email);
+    setValue("phoneNumber", user.phoneNumber);
+    setValue("pets", user.pets);
+  }, [user]);
 
   const navigate = useNavigate();
 
