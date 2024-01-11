@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserCard } from "../../components/UserCard/UserCard";
+import "./main.css";
 
 export function Main() {
   const [users, setUsers] = useState([]);
@@ -23,15 +24,23 @@ export function Main() {
     navigate(`/edit/${id}`);
   };
   return (
-    <div>
-      <div>Main Page</div>
-      <button type="button" onClick={handleClickCreate}>
+    <div className="main-wrapper">
+      <div className="title-text">Main Page</div>
+      <button
+        className="create-button"
+        type="button"
+        onClick={handleClickCreate}
+      >
         Create card
       </button>
       {users.map((user) => (
         <div className="user-container" key={user.id}>
           <UserCard data={user} />
-          <button type="button" onClick={() => handleClickEdit(user.id)}>
+          <button
+            className="edit-button"
+            type="button"
+            onClick={() => handleClickEdit(user.id)}
+          >
             edit
           </button>
         </div>

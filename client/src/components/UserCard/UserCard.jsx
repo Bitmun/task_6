@@ -8,7 +8,7 @@ export function UserCard({
     gender,
     firstName,
     pets,
-    secondName,
+    lastName,
     age,
     email,
     phoneNumber,
@@ -16,16 +16,20 @@ export function UserCard({
 }) {
   return (
     <div className="card-wrapper">
-      <div>Username: {username}</div>
-      <div>First name: {firstName}</div>
-      <div>Second name: {secondName}</div>
-      <div>Sex: {gender}</div>
-      <div>Age: {age}</div>
-      <div>{email}</div>
-      <div>{phoneNumber || "no phone number"}</div>
-      <div>
+      <div className="username">{username}</div>
+      <div className="name-wrapper">
+        <div className="first-name">{firstName}</div>
+        <div className="last-name">{lastName}</div>
+      </div>
+      <div className="age-sex">
+        <div>Sex: {gender} </div>
+        <div>Age: {age}</div>
+      </div>
+      <div className="email">{email}</div>
+      <div className="phone-number">{phoneNumber || "no phone number"}</div>
+      <div className="pets-wrapper">
         {pets.map((pet) => (
-          <div key={pet.id}>
+          <div key={pet} className="pet-wrapper">
             <div>species: {pet.species}</div>
             <div>name: {pet.name}</div>
           </div>

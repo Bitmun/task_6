@@ -13,17 +13,25 @@ export function PetForm({ register, remove, index, errors }) {
           <option value="cat">Cat</option>
           <option value="bird">Bird</option>
         </select>
-        {errors && errors[`pets[${index}].species`] && (
-          <p className="error">{errors[`pets[${index}].species`].message}</p>
-        )}
+        <label className="error-label" htmlFor="firstNameInput">
+          {errors && errors[`pets[${index}].species`] && (
+            <span className="error-message">
+              {errors[`pets[${index}].species`].message}
+            </span>
+          )}
+        </label>
         <input
           className="input-box"
           {...register(`pets[${index}].name`)}
           placeholder="Name"
         />
-        {errors && errors[`pets[${index}].name`] && (
-          <p className="error">{errors[`pets[${index}].name`].message}</p>
-        )}
+        <label className="error-label" htmlFor="firstNameInput">
+          {errors && errors[`pets[${index}].name`] && (
+            <span className="error-message">
+              {errors[`pets[${index}].name`].message}
+            </span>
+          )}
+        </label>
         <button className="input-button" type="button" onClick={remove}>
           Delete
         </button>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserCard } from "../../components/UserCard/UserCard";
 import FormsStack from "../../components/FormsStack/FormsStack";
+import "./edit.css";
 
 export function Edit() {
   const [user, setUser] = useState();
@@ -25,18 +26,18 @@ export function Edit() {
   }, []);
 
   return (
-    <div>
-      <div>Edit Page</div>
-      <button type="button" onClick={handleClick}>
+    <div className="main-wrapper">
+      <div className="title">Edit Page</div>
+      <button type="button" className="navigate-button" onClick={handleClick}>
         Go to main
       </button>
       {isLoading ? (
         <div>Is loading</div>
       ) : (
         <>
-          <div>Original</div>
+          <div className="title">Original</div>
           <UserCard data={user} />
-          <div>Forms:</div>
+          <div className="title">Forms:</div>
           <FormsStack user={user} />
         </>
       )}

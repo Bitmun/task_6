@@ -22,12 +22,15 @@ function FormsStack({ user }) {
     formState: { errors },
     setValue,
   } = useForm({ resolver });
+
   const [radioState, setRadioState] = useState(false);
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: "pets",
   });
+
+  // const [submitError, setSubmitError] = useState("");
 
   const divClass = classNames("sub-menu-wrapper", {
     "is-closed": !radioState,
@@ -73,11 +76,6 @@ function FormsStack({ user }) {
               }
             }
           });
-
-          if (Object.keys(updatedData).length === 0) {
-            // TODO
-            return;
-          }
 
           updatedData.id = user.id;
 
@@ -206,7 +204,6 @@ function FormsStack({ user }) {
               <label htmlFor="educationYes">Yes</label>
             </div>
           </div>
-
           <div className={divClass}>
             <div className="input-container">
               <select {...register("highestEducation")}>
@@ -248,7 +245,7 @@ function FormsStack({ user }) {
       <div className="input-container">
         <input
           className="input-box"
-          type="string"
+          type="text"
           placeholder="Email..."
           id="emailInput"
           aria-label="emailInput"
