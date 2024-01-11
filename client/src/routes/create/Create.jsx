@@ -13,13 +13,17 @@ export function Create() {
     navigate("/");
   };
 
+  const options = {
+    type: "create",
+  };
+
   return (
     <div className="main-wrapper">
       <div>Creating new card</div>
       <button type="button" onClick={handleClick}>
         Go to main
       </button>
-      <FormsStack />
+      <FormsStack options={options} />
     </div>
   );
 }

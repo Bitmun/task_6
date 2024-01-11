@@ -9,6 +9,10 @@ export function Edit() {
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
+  const options = {
+    type: "edit",
+    user,
+  };
   const id = params.cardId;
   const navigate = useNavigate("/");
   const handleClick = () => {
@@ -24,6 +28,7 @@ export function Edit() {
         setIsLoading(false);
       })
       .catch(() => {
+        setIsLoading(false);
         navigate("/");
       });
   }, []);
@@ -41,7 +46,7 @@ export function Edit() {
           <div className="title">Original</div>
           <UserCard data={user} />
           <div className="title">Forms:</div>
-          <FormsStack user={user} />
+          <FormsStack options={options} />
         </>
       )}
     </div>
