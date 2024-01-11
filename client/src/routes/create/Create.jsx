@@ -5,6 +5,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./create.css";
 import FormsStack from "../../components/FormsStack/FormsStack";
+import { FORM_TYPES } from "../../data/types";
 
 export function Create() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export function Create() {
   };
 
   const options = {
-    type: "create",
+    type: FORM_TYPES.CREATE,
   };
 
   return (
