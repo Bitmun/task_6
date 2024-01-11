@@ -9,7 +9,7 @@ const app = express();
 const PORT = 5000;
 
 const corsOptions = {
-  origin: "https://task-6.onrender.com",
+  origin: "https://task-6-76e5.onrender.com/",
   credentials: true,
   optionSuccessStatus: 200,
 };
