@@ -16,7 +16,7 @@ export function Edit() {
   };
   useEffect(() => {
     axios
-      .get(`https://task-6-server.onrender.com/users/${id}`, {
+      .get(`https://task-6-server-yuiq.onrender.com/users/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

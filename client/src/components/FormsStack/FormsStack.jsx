@@ -81,7 +81,7 @@ function FormsStack({ user }) {
 
           axios
             .patch(
-              `https://task-6-server.onrender.com/users/${user.id}`,
+              `https://task-6-server-yuiq.onrender.com/users/${user.id}`,
               updatedData,
               {
                 withCredentials: true,
@@ -102,7 +102,7 @@ function FormsStack({ user }) {
         });
 
         axios
-          .post("https://task-6-server.onrender.com/users", data, {
+          .post("https://task-6-server-yuiq.onrender.com/users", data, {
             withCredentials: true,
           })
           .then(() => {
