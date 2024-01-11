@@ -4,7 +4,6 @@ import { useFieldArray, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { useYupValidationResolver } from "../../customHooks/yupHooks";
 import { cardSchema } from "../../schemes/cardScheme";
-import "./formsStack.css";
 import FormCreator from "../FormCreator/FormCreator";
 
 function FormsStack({ options: { type, user } }) {

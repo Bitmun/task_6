@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-prototype-builtins */
 import React from "react";
 import { PetForm } from "../PetForm/PetForm";
+import "./form.css";
 
 function Form({
   formData: {
