@@ -11,6 +11,7 @@ import { useYupValidationResolver } from "../../customHooks/yupHooks";
 import { cardSchema } from "../../schemes/cardScheme";
 import { PetForm } from "../PetForm/PetForm";
 import "./formsStack.css";
+import { checkArrays } from "../../utils/arrayValidation";
 
 function FormsStack({ user }) {
   const resolver = useYupValidationResolver(cardSchema);
@@ -29,8 +30,6 @@ function FormsStack({ user }) {
     control,
     name: "pets",
   });
-
-  // const [submitError, setSubmitError] = useState("");
 
   const divClass = classNames("sub-menu-wrapper", {
     "is-closed": !radioState,
@@ -71,11 +70,20 @@ function FormsStack({ user }) {
           const updatedData = {};
           Object.keys(user).forEach((key) => {
             if (data.hasOwnProperty(key)) {
-              if (data[key] !== user[key]) {
+              if (key === "pets") {
+                if (!checkArrays(data.pets, user.pets)) {
+                  updatedData[key] = data[key];
+                }
+              } else if (data[key] !== user[key]) {
                 updatedData[key] = data[key];
               }
             }
           });
+
+          if (Object.keys(updatedData).length === 0) {
+            navigate("/");
+            return;
+          }
 
           updatedData.id = user.id;
 
@@ -84,6 +92,9 @@ function FormsStack({ user }) {
               withCredentials: true,
             })
             .then(() => {
+              navigate("/");
+            })
+            .catch(() => {
               navigate("/");
             });
           return;
