@@ -5,11 +5,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Form from "../Form/Form";
 import { checkArrays } from "../../utils/arrayValidation";
+import { FORM_TYPES } from "../../data/types";
 
 function FormCreator({ options: { type, user }, formData }) {
   const { setValue, setRadioState } = formData;
   const navigate = useNavigate();
-  if (type === "edit") {
+  if (type === FORM_TYPES.EDIT) {
     useEffect(() => {
       setValue("username", user.username);
       setValue("firstName", user.firstName);
@@ -61,7 +62,7 @@ function FormCreator({ options: { type, user }, formData }) {
 
     return <Form formData={formData} submitCallBack={editSubmitCallBack} />;
   }
-  if (type === "create") {
+  if (type === FORM_TYPES.CREATE) {
     const createSubmitCallBack = (data) => {
       const requestData = {};
       Object.keys(data).forEach((key) => {
