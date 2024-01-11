@@ -5,7 +5,7 @@ import React from "react";
 import { PetForm } from "../PetForm/PetForm";
 import "./form.css";
 
-function Form({
+export function Form({
   formData: {
     register,
     handleSubmit,
@@ -212,5 +212,3 @@ function Form({
     </form>
   );
 }
-
-export default Form;

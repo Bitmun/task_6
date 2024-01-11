@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserCard } from "../../components/UserCard/UserCard";
 import "./main.css";
+import { UserWithButton } from "../../components/UserWithButton/UserWithButton";
 
 export function Main() {
   const [users, setUsers] = useState([]);
@@ -34,16 +34,7 @@ export function Main() {
         Create card
       </button>
       {users.map((user) => (
-        <div className="user-container" key={user.id}>
-          <UserCard data={user} />
-          <button
-            className="edit-button"
-            type="button"
-            onClick={() => handleClickEdit(user.id)}
-          >
-            edit
-          </button>
-        </div>
+        <UserWithButton user={user} handleClick={handleClickEdit} />
       ))}
     </div>
   );

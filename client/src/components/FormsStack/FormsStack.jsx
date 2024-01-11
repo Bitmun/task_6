@@ -4,9 +4,9 @@ import { useFieldArray, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { useYupValidationResolver } from "../../customHooks/yupHooks";
 import { cardSchema } from "../../schemes/cardScheme";
-import FormCreator from "../FormCreator/FormCreator";
+import { FormCreator } from "../FormCreator/FormCreator";
 
-function FormsStack({ options: { type, user } }) {
+export function FormsStack({ options: { type, user } }) {
   const resolver = useYupValidationResolver(cardSchema);
 
   const {
@@ -59,5 +59,3 @@ function FormsStack({ options: { type, user } }) {
 
   return <FormCreator formData={formData} options={options} />;
 }
-
-export default FormsStack;

@@ -3,11 +3,11 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Form from "../Form/Form";
+import { Form } from "../Form/Form";
 import { checkArrays } from "../../utils/arrayValidation";
 import { FORM_TYPES } from "../../data/types";
 
-function FormCreator({ options: { type, user }, formData }) {
+export function FormCreator({ options: { type, user }, formData }) {
   const { setValue, setRadioState } = formData;
   const navigate = useNavigate();
   if (type === FORM_TYPES.EDIT) {
@@ -82,5 +82,3 @@ function FormCreator({ options: { type, user }, formData }) {
     return <Form formData={formData} submitCallBack={createSubmitCallBack} />;
   }
 }
-
-export default FormCreator;
