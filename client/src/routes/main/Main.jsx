@@ -13,7 +13,7 @@ export function Main() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users", {
+      .get("https://task-6-server.onrender.com/users", {
         withCredentials: true,
       })
       .then((res) => {

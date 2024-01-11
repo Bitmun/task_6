@@ -80,9 +80,13 @@ function FormsStack({ user }) {
           updatedData.id = user.id;
 
           axios
-            .patch(`http://localhost:5000/users/${user.id}`, updatedData, {
-              withCredentials: true,
-            })
+            .patch(
+              `https://task-6-server.onrender.com/users/${user.id}`,
+              updatedData,
+              {
+                withCredentials: true,
+              },
+            )
             .then(() => {
               navigate("/");
             });
@@ -98,7 +102,7 @@ function FormsStack({ user }) {
         });
 
         axios
-          .post("http://localhost:5000/users", data, {
+          .post("https://task-6-server.onrender.com/users", data, {
             withCredentials: true,
           })
           .then(() => {
