@@ -15,8 +15,8 @@ export function Create() {
 
   return (
     <div className="main-wrapper">
-      <div>Creating new card</div>
-      <button type="button" onClick={handleClick}>
+      <div className="title">Creating new card</div>
+      <button className="navigate-button" type="button" onClick={handleClick}>
         Go to main
       </button>
       <FormsStack />
